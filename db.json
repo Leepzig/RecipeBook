@@ -1,0 +1,24 @@
+{
+  "recipeBook": [
+    {
+      "id": 1,
+      "title": "Fried Rice",
+      "shortDescription": "Classic Chinese fried rice with veggies"
+    },
+    {
+      "id": 2,
+      "title": "Chicken Soup",
+      "shortDescription": "What you need when you're sick"
+    },
+    {
+      "id": 3,
+      "title": "Grilled Cheese",
+      "shortDescription": "the classic side for tomato soup"
+    },
+    {
+      "title": "Vegetarian Pasta",
+      "shortDescription": "A delcious pasta with tomato sauce and muchrooms or cheese in place of meat",
+      "id": 6
+    }
+  ]
+}
