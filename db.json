@@ -1,24 +1,20 @@
 {
   "recipeBook": [
     {
-      "id": 1,
-      "title": "Fried Rice",
-      "shortDescription": "Classic Chinese fried rice with veggies"
+      "title": "Fried Chinese Rice",
+      "shortDescription": "Simple Fried rice with your choice of veggies and meat",
+      "ingredients": "rice, eggs, carrots, onions, ham or any other meat peas, other vegetables of your choice",
+      "instructions": "1. Cook rice if you don't already have some left over. 2. throw eggs on rice 3. cook rice 4. cook vegetables with meat 5. combine fried rice with cooked vegetables",
+      "author": "Chinese Lady",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Chicken Soup",
-      "shortDescription": "What you need when you're sick"
-    },
-    {
-      "id": 3,
       "title": "Grilled Cheese",
-      "shortDescription": "the classic side for tomato soup"
-    },
-    {
-      "title": "Vegetarian Pasta",
-      "shortDescription": "A delcious pasta with tomato sauce and muchrooms or cheese in place of meat",
-      "id": 6
+      "shortDescription": "The best things to accompany tomato soup",
+      "ingredients": "bread, cheese, butter",
+      "instructions": "1. put butter on pan until melted 2. make and sandwhich with cheese and bread 3. put sandwhich in the butter on the pan 4. take the sandwich out of the pan and put more butter in the pan 4. put sandwich back in the pan with the uncooked side face down.",
+      "author": "My mom",
+      "id": 2
     }
   ]
 }

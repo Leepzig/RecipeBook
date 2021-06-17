@@ -9,21 +9,34 @@
 </head>
 <body>
   <h1>Recipe Book</h1>
-  <ul>
-    <li>
-      <h2>Recipe 1</h2>
-      <p>Short blurb about recipe.  Tasty chinese inspired fried rice with vegetables and ham</p>
-    </li>
-    <li>
-      <h2>Recipe 1</h2>
-      <p>Short blurb about recipe.  Tasty chinese inspired fried rice with vegetables and ham</p>
-    </li>
-    <li>
-      <h2>Recipe 1</h2>
-      <p>Short blurb about recipe.  Tasty chinese inspired fried rice with vegetables and ham</p>
-    </li>
-  </ul>
+  <hr>
+  <h2>Create a Recipe</h2>
+  <div>
+    <form id="recipe-form">
+      <label for="title-input">Title</label>
+      <input type="text" name="title" id="title-input">
+      <br>
+      <label for="short-description-input">Short Description</label>
+      <input type="text" name="short-description" id="short-description-input">
+      <br>
+      <label for="ingredients-input">Ingredients</label>
+      <input type="textarea" name="ingredients" id="ingredients-input">
+      <br>
+      <label for="instructions-input">Instructions</label>
+      <input type="text" name="instructions" id="instructions-input" rows="30" col="30">
+      <br>
+      <label for="author-input">Author</label>
+      <input type="text" name="author" id="author-input">
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <h2>Recipes</h2>
+  <div>
+    <ul id="recipe-list">
 
+    </ul>
+  </div>
   <script src="./javascript/index.js"></script>
 </body>
 </html>
