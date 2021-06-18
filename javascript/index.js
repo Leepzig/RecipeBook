@@ -109,14 +109,37 @@ const addStep = () => {
 //What would I want to search for?
 //ingredients, title, author, maybe key words, or tags?
 //title:grilled cheese
-// const searchFunctionBuilder = (key) => {
-//   return (value) => {
-//     fetch("http://localhost:3000/recipeBook")
-//     .then(response => response.json())
-//     .then(data => {
-//       data.forEach(recipe => {
-//         title.split(" ").find(el => el === value)
-//       })
-//     })
 
+const searchFunctionBuilder = (key) => {
+  return (value) => {
+    fetch("http://localhost:3000/recipeBook")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(recipe => {
+        if (recipe[key].includes(value)) {
+          recipeList().innerHTML = ""
+          displayRecipe(recipe)
+        }
+      })
+    })
+  }
+}
+
+// const search = (key, value) => {
+//   fetch("http://localhost:3000/recipeBook")
+//   .then(response => response.json())
+//   .then(data => {
+//     data.forEach(recipe => {
+//       if (recipe[key].includes(value)) {
+//         recipeList().innerHTML = ""
+//         displayRecipe(recipe)
+//       }
+//     })
+//   })
 // }
+
+const findById = (id) => {
+  fetch("http://localhost:3000/recipeBook/" + id)
+  .then()
+  displayRecipe
+}
