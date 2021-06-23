@@ -4,11 +4,13 @@
       "title": "Fried Chinese Rice",
       "shortDescription": "Simple Fried rice with your choice of veggies and meat",
       "ingredients": "rice, eggs, carrots, onions, ham or any other meat peas, other vegetables of your choice",
-      "instructions": ["Cook rice if you don't already have some left over.", 
-        "throw eggs on rice" ,
-        "cook rice" ,
-        " cook vegetables with meat" ,
-        "combine fried rice with cooked vegetables"],
+      "instructions": [
+        "Cook rice if you don't already have some left over.",
+        "throw eggs on rice",
+        "cook rice",
+        " cook vegetables with meat",
+        "combine fried rice with cooked vegetables"
+      ],
       "author": "Chinese Lady",
       "id": 1
     },
@@ -16,11 +18,13 @@
       "title": "Grilled Cheese",
       "shortDescription": "The best things to accompany tomato soup",
       "ingredients": "bread, cheese, butter",
-      "instructions": ["put butter on pan until melted ",
-      "make and sandwhich with cheese and bread", 
-      "put sandwhich in the butter on the pan" ,
-      "take the sandwich out of the pan and put more butter in the pan", 
-      "put sandwich back in the pan with the uncooked side face down."],
+      "instructions": [
+        "put butter on pan until melted ",
+        "make and sandwhich with cheese and bread",
+        "put sandwhich in the butter on the pan",
+        "take the sandwich out of the pan and put more butter in the pan",
+        "put sandwich back in the pan with the uncooked side face down."
+      ],
       "author": "My mom",
       "id": 2
     },
@@ -44,34 +48,38 @@
         "buy tomatoes",
         "cut tomatoes",
         "boil tomatoes",
-        ""
-      ],
-      "author": "Tomato lover",
-      "id": 4
-    },
-    {
-      "title": "Tomato Soup",
-      "shortDescription": "it's tomatoy",
-      "ingredients": "tomatoes and water",
-      "instructions": [
-        "buy tomatoes",
-        "cut tomatoes",
-        "boil tomatoes",
         "cook"
       ],
       "author": "Tomato lover",
       "id": 5
     },
     {
-      "title": "sandwich",
-      "shortDescription": "ham",
-      "ingredients": "ham bread",
+      "title": "The Classic Ham Sandwich",
+      "shortDescription": "Nothing beats the class ham sandwich from when you were a kid",
+      "ingredients": "ham, your cheese (I prefer pepper jack), bread, other condiments like mayo or spicy mustard",
       "instructions": [
-        "buy bread",
-        "buy ham"
+        "Get two slices of bread.",
+        "Put a slice of ham then a slice of cheese, then ham, then cheese on one slice of bread.",
+        "On the other slice of bread put your condiments, for example I like spicy brown mustard.",
+        "Finally put the slice of bread with the condiments on the slice of bread with the ham and cheese. Now take that first bite and enjoy!"
       ],
-      "author": "",
+      "author": "Andrew",
       "id": 6
+    },
+    {
+      "title": "Colombian Caldo",
+      "shortDescription": "A simple, typical Colombian soup, normally eaten with a Colombian arepa.",
+      "ingredients": "water, green onion, potatoes, milk, egg",
+      "instructions": [
+        "Fill a pot based on the number of bowls you're going to serve divided by two. So if you're serving two people that will be one bowl of water. And begin cooking the water on medium high heat so that it boils.",
+        "Cut the potatoes into thin 1/2 inch slices and begin boiling them. 1-2 potatoes per 2 people.",
+        "Chop the white portion of the green onion into very fine pieces, and put it into the pot along with the potatoes.",
+        "After the potatoes are finished cooking add the same amount of milk as you did water. So you soup will be half water half milk.",
+        "Then add one egg per person into the boiling soup, so that the egg cooks quickly before breaking apart.",
+        "Serve into bowls ensuring that each person receives one egg and some potatoes."
+      ],
+      "author": "Andrew",
+      "id": 7
     }
   ]
 }

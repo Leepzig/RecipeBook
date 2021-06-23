@@ -7,3 +7,11 @@ body {
   border: solid goldenrod;
   margin: 20px;
 }
+
+ol #recipe-list{
+  list-style-type: none;
+}
+
+li textarea{
+  width:340px;
+}

@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   recipeForm().addEventListener("submit", e => {
     e.preventDefault()
     createNewRecipe(getValuesFromInputs())
+    recipeForm().reset()
   })
   addStepButton().addEventListener('click', addStep)
 })
@@ -30,22 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
 const displayRecipe = (recipe) => {
   const li = document.createElement("li")
   const title = document.createElement("h3")
-  const pDescription = document.createElement("p")
-  const pIngredients = document.createElement("p")
   const olInstructions = document.createElement("ol")
-  const pAuthor = document.createElement("p")
 
   title.innerText = recipe.title
-  pDescription.innerText = recipe.shortDescription
-  pIngredients.innerText = recipe.ingredients
-  displayOrderedInstructions(recipe.instructions, olInstructions)
-  pAuthor.innerText = recipe.author
-
   li.appendChild(title)
-  li.appendChild(pDescription)
-  li.appendChild(pIngredients)
+  beautifyDisplayedElement(recipe.shortDescription, li, "Description")
+  beautifyDisplayedElement(recipe.ingredients, li, "Ingredients")
+  displayOrderedInstructions(recipe.instructions, olInstructions)
   li.appendChild(olInstructions)
-  li.appendChild(pAuthor)
+  beautifyDisplayedElement(recipe.author, li, "Author")
+
   recipeList().appendChild(li)
 }
 
@@ -59,8 +54,19 @@ const displayOrderedInstructions = (instructionArray, orderedList) => {
   })
 }
 
+//helper function to display each part of the recipe
+const beautifyDisplayedElement = (element, li, subheading) => {
+  const h4 = document.createElement("h4")
+  const p = document.createElement("p")
+  h4.innerText = subheading
+  p.innerText = element
+  li.appendChild(h4)
+  li.appendChild(p)
+}
+
 //displays all recipes calling displayRecipe while looping through
 const displayAllRecipes = () => {
+  recipeList().innerHTML = ""
   fetch("http://localhost:3000/recipeBook")
   .then( response => response.json())
   .then(data => {
@@ -70,7 +76,7 @@ const displayAllRecipes = () => {
   })
 }
 
-//obtains the values from the form to use in creation of new recipe
+//Puts the values from the form into an object to pass to createRecipe in the fetch POST
 const getValuesFromInputs = () => {
   const recipe = {
     title:titleInput().value,
@@ -125,33 +131,35 @@ const addStep = () => {
 //title:grilled cheese
 
 const searchFunctionBuilder = (key) => {
-  
   return (value) => {
-    let valueFound
+    const recipesMatched = []
+    
     fetch("http://localhost:3000/recipeBook")
     .then(response => response.json())
     .then(data => {
       data.forEach(recipe => {
         //debugger
         if (recipe[key].toLowerCase().includes(value.toLowerCase())) {
-          console.log(recipe)
-          recipeList().innerHTML = ""
-          displayRecipe(recipe)
-          valueFound = true
-          return valueFound
-        } else {
-          valueFound = false
-          return valueFound
+          recipesMatched.push(recipe)
+          console.log("if recipe IS FOUND in IF log this: ", recipesMatched) 
         }
+        
       })
+      if (recipesMatched[0]) {
+        console.log("IF VALUE FOUND THIS SHOULD RUN", recipesMatched)
+      recipeList().innerHTML = ""
+      recipesMatched.forEach(recipe=>displayRecipe(recipe))
+      //debugger
+      } else {
+        console.log("IF nothing is found THIS SHOULD RUN and an empty array:", recipesMatched)
+        alert("No recipes matching that criteria were found.")
+      } 
     })
-    if (valueFound === false) {
-      alert(`value not found!`)
-    }
+    
   }
 }
 
-
+//makes the function to append to the search button
 const searchRecipes = (e) => {
   e.preventDefault()
   searchFunctionBuilder(keySearchSelector().value)(searchInput().value)
@@ -174,4 +182,4 @@ const searchRecipes = (e) => {
 
 //Stretch Goals
 //Delete, Edit, comment, 
-//fix the add step button
+//
