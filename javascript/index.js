@@ -9,11 +9,15 @@
   const authorInput = () => document.querySelector("#author-input")
   const recipeForm = () => document.querySelector("#recipe-form")
   const addStepButton = () => document.querySelector("#addStepButton")
-
-
+  const viewAllRecipes = () => document.querySelector("#view-all")
+  const searchButton = () => document.querySelector("#search-button")
+  const keySearchSelector = () => document.querySelector("#key-search")
+  const searchInput = () => document.querySelector("#search-input")
 
 //onLoad functions
 document.addEventListener("DOMContentLoaded", () => {
+  searchButton().addEventListener("click", searchRecipes)
+  viewAllRecipes().addEventListener("click", displayAllRecipes)
   displayAllRecipes()
   recipeForm().addEventListener("submit", e => {
     e.preventDefault()
@@ -28,21 +32,31 @@ const displayRecipe = (recipe) => {
   const title = document.createElement("h3")
   const pDescription = document.createElement("p")
   const pIngredients = document.createElement("p")
-  const pInstructions = document.createElement("p")
+  const olInstructions = document.createElement("ol")
   const pAuthor = document.createElement("p")
 
   title.innerText = recipe.title
   pDescription.innerText = recipe.shortDescription
   pIngredients.innerText = recipe.ingredients
-  pInstructions.innerText = recipe.instructions
+  displayOrderedInstructions(recipe.instructions, olInstructions)
   pAuthor.innerText = recipe.author
 
   li.appendChild(title)
   li.appendChild(pDescription)
   li.appendChild(pIngredients)
-  li.appendChild(pInstructions)
+  li.appendChild(olInstructions)
   li.appendChild(pAuthor)
   recipeList().appendChild(li)
+}
+
+//organizes the instructions to display in an ordered list
+const displayOrderedInstructions = (instructionArray, orderedList) => {
+  //debugger
+  instructionArray.forEach(instruction => {
+    const li = document.createElement("li")
+    li.innerText = instruction
+    orderedList.appendChild(li)
+  })
 }
 
 //displays all recipes calling displayRecipe while looping through
@@ -111,19 +125,38 @@ const addStep = () => {
 //title:grilled cheese
 
 const searchFunctionBuilder = (key) => {
+  
   return (value) => {
+    let valueFound
     fetch("http://localhost:3000/recipeBook")
     .then(response => response.json())
     .then(data => {
       data.forEach(recipe => {
-        if (recipe[key].includes(value)) {
+        //debugger
+        if (recipe[key].toLowerCase().includes(value.toLowerCase())) {
+          console.log(recipe)
           recipeList().innerHTML = ""
           displayRecipe(recipe)
+          valueFound = true
+          return valueFound
+        } else {
+          valueFound = false
+          return valueFound
         }
       })
     })
+    if (valueFound === false) {
+      alert(`value not found!`)
+    }
   }
 }
+
+
+const searchRecipes = (e) => {
+  e.preventDefault()
+  searchFunctionBuilder(keySearchSelector().value)(searchInput().value)
+}
+
 
 // const search = (key, value) => {
 //   fetch("http://localhost:3000/recipeBook")
@@ -138,8 +171,7 @@ const searchFunctionBuilder = (key) => {
 //   })
 // }
 
-const findById = (id) => {
-  fetch("http://localhost:3000/recipeBook/" + id)
-  .then()
-  displayRecipe
-}
+
+//Stretch Goals
+//Delete, Edit, comment, 
+//fix the add step button

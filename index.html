@@ -9,32 +9,50 @@
 </head>
 <body>
   <h1>Recipe Book</h1>
-  <hr>
+  <nav class="nav-bar">
+    <div class="nav-button" id="view-all">
+    <h2>View All Recipes</h2>
+    </div>
+    <form>
+      <label for="keySearch">Choose A Search Category:</label><br>
+      <button id="search-button">Search</button>
+      <select name="keySearch" id="key-search">
+        <option value="title">Titles</option>
+        <option value="ingredients">Ingredients</option>
+        <option value="author">Authors</option>
+      </select>
+      <input type="text" name="search" id="search-input">
+    </form>
+
+  </nav>
+      <hr>
   <h2>Create a Recipe</h2>
   <div>
     <form id="recipe-form">
       <label for="title-input">Title:</label><br>
-      <input type="text" name="title" id="title-input">
+      <input type="text" name="title" id="title-input" required>
       <br>
       <label for="short-description-input">Short Description:</label><br>
-      <textarea type="text" name="short-description" id="short-description-input" cols="25" rows="3"></textarea>
+      <textarea type="text" name="short-description" id="short-description-input" cols="25" rows="3" required></textarea>
       <br>
       <label for="ingredients-input">Ingredients:</label><br>
-      <textarea name="ingredients" id="ingredients-input" cols="25" rows="2"></textarea>
+      <textarea name="ingredients" id="ingredients-input" cols="25" rows="2" required></textarea>
       <br>
       <label for="instructions-input">Instructions:</label>
-      <ol id="instructions-input-list">
-        <li>
-          <textarea rows="2" col="40"></textarea>
-        </li>
-        <li>
-          <textarea rows="2" col="40"></textarea>
-        </li>
-      </ol>
-      <button id="addStepButton">Add Another Step:</button><br>
+
+        <ol id="instructions-input-list">
+          <li>
+            <textarea rows="2" col="40" required></textarea>
+          </li>
+          <li>
+            <textarea rows="2" col="40 " required></textarea>
+          </li>
+        </ol>
+        <button id="addStepButton" >Add Another Step:</button><br>
+
       <br>
       <label for="author-input">Author</label><br>
-      <input type="text" name="author" id="author-input"><br>
+      <input type="text" name="author" id="author-input" required><br>
       <br>
       <input type="submit" value="Submit">
     </form>

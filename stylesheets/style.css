@@ -1,3 +1,9 @@
 body {
   background-color:seashell ;
 }
+
+#view-all {
+  background-color:orangered;
+  border: solid goldenrod;
+  margin: 20px;
+}
