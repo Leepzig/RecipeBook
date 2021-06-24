@@ -91,7 +91,6 @@ const getValuesFromInputs = () => {
   return recipe
 }
 
-
 //uses fetch to post the data to the server
 const createNewRecipe = (recipe) => {
   const fetchConfiguration = {
@@ -124,38 +123,26 @@ const addStep = () => {
   instructionsInput().appendChild(li)
 }
 
-
-//search function used to find a specific recipe...by what?
-//What would I want to search for?
-//ingredients, title, author, maybe key words, or tags?
-//title:grilled cheese
-
+//returns a function that takes a value as an argument to search the given key for the value.
 const searchFunctionBuilder = (key) => {
   return (value) => {
     const recipesMatched = []
-    
     fetch("http://localhost:3000/recipeBook")
     .then(response => response.json())
     .then(data => {
       data.forEach(recipe => {
-        //debugger
         if (recipe[key].toLowerCase().includes(value.toLowerCase())) {
           recipesMatched.push(recipe)
           console.log("if recipe IS FOUND in IF log this: ", recipesMatched) 
         }
-        
       })
       if (recipesMatched[0]) {
-        console.log("IF VALUE FOUND THIS SHOULD RUN", recipesMatched)
       recipeList().innerHTML = ""
       recipesMatched.forEach(recipe=>displayRecipe(recipe))
-      //debugger
       } else {
-        console.log("IF nothing is found THIS SHOULD RUN and an empty array:", recipesMatched)
         alert("No recipes matching that criteria were found.")
       } 
     })
-    
   }
 }
 
