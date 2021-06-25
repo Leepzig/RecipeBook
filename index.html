@@ -1,69 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./stylesheets/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
   <title>Recipe Book</title>
 </head>
-<body>
-  <h1>Recipe Book</h1>
-  <nav class="nav-bar">
-    <div class="nav-button" id="view-all">
-    <h2>View All Recipes</h2>
+
+
+
+<body class=" amber lighten-4">
+
+
+  <nav class="nav-extended amber">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">RB</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+      </div>
+      <div class="nav-content">
+        <ul class="tabs tabs-transparent">
+          <li class="tab"><a id="view-all" class="active" href="#view-recipes-tab">View</a></li>
+          <li class="tab"><a href="#create-recipe-tab">Create</a></li>
+        </ul>
+      </div>
     </div>
-    <form>
-      <label for="keySearch">Choose A Search Category:</label><br>
-      <button id="search-button">Search</button>
-      <select name="keySearch" id="key-search">
-        <option value="title">Titles</option>
-        <option value="ingredients">Ingredients</option>
-        <option value="author">Authors</option>
-      </select>
-      <input type="text" name="search" id="search-input">
-    </form>
-
   </nav>
-      <hr>
 
-  <h2>Create a Recipe</h2>
-  <div>
+  <div class="container">
+    <h2 class="center-align brown-text text-darken-2">Recipe Book</h2>
+    <img class="center-align" id="center-banner" src="./imgs/feast-banner.jpg"
+      alt="A picture of food on a table, lots of meat and corn, looks like a barbecue.">
+  </div>
+  <hr>
+
+
+  <div class="container input-field" id="create-recipe-tab">
+    <h3 class="brown-text text-darken-2">Create a Recipe</h3>
     <form id="recipe-form">
-      <label for="title-input">Title:</label><br>
+      <label for="title-input" class="brown-text text-darken-2">Title:</label><br>
       <input type="text" name="title" id="title-input" required>
       <br>
-      <label for="short-description-input">Short Description:</label><br>
-      <textarea type="text" name="short-description" id="short-description-input" cols="50" rows="3" required></textarea>
+      <label for="short-description-input" class="brown-text text-darken-2">Short Description:</label><br>
+      <textarea type="text" name="short-description" id="short-description-input" cols="50" rows="3"
+        required></textarea>
       <br>
-      <label for="ingredients-input">Ingredients:</label><br>
+      <label for="ingredients-input" class="brown-text text-darken-2">Ingredients:</label><br>
       <textarea name="ingredients" id="ingredients-input" cols="50" rows="3" required></textarea>
       <br>
-      <label for="instructions-input">Instructions:</label>
+      <label for="instructions-input" class="brown-text text-darken-2">Instructions:</label>
 
-        <ol id="instructions-input-list">
-          <li>
-            <textarea rows="3" col="40" required></textarea>
-          </li>
-          <li>
-            <textarea rows="3" col="40 " required></textarea>
-          </li>
-        </ol>
-        <button id="addStepButton" >Add Another Step:</button><br>
+      <ol id="instructions-input-list">
+        <li>
+          <textarea rows="3" col="40" required></textarea>
+        </li>
+        <li>
+          <textarea rows="3" col="40 " required></textarea>
+        </li>
+      </ol>
+      <input type="button" class="waves-effect waves-light btn-small amber lighten-2 brown-text text-darken-3" id="addStepButton" value="Add Another Step:"><br>
 
       <br>
-      <label for="author-input">Author</label><br>
+      <label for="author-input" class="brown-text text-darken-2">Author</label><br>
       <input type="text" name="author" id="author-input" required><br>
       <br>
-      <input type="submit" value="Submit">
+      <button class="waves-effect waves-light btn-small amber lighten-2 brown-text text-darken-3" type="submit"
+        value="Submit">Submit</button>
     </form>
   </div>
-  <h2>Recipes</h2>
-  <div>
-    <ul id="recipe-list">
 
-    </ul>
+
+
+  <div class="container" id="view-recipes-tab">
+    <form>
+      <div class="input-field col s4">
+        <label for="keySearch" class="brown-text">Search By:</label>
+        <select class="brown-text brown" name="keySearch" id="key-search">
+          <option class="brown-text brown" value="ingredients">Ingredients</option>
+          <option class="brown-text" value="title">Titles</option>
+          <option class="brown-text" value="author">Authors</option>
+        </select>
+        <input type="text" name="search" id="search-input" class="brown-text"
+          placeholder="Search by titles, authors, or ingredients">
+        <button class="waves-effect waves-light btn-small amber lighten-2 brown-text text-darken-3"
+          id="search-button">Search</button>
+      </div>
+    </form>
+    <h3 class="brown-text text-darken-2">Recipes</h3>
+
+    <div>
+      <ul id="recipe-list">
+
+      </ul>
+    </div>
   </div>
+  <script src="./javascript/materialize.js"></script>
   <script src="./javascript/index.js"></script>
 </body>
+
 </html>
