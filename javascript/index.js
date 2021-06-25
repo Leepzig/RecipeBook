@@ -1,5 +1,5 @@
 
-// get node variables
+// Gobal get node variables
   const recipeList = () => document.querySelector("#recipe-list")
   const titleInput = () => document.querySelector("#title-input")
   const shortDescriptionInput = () => document.querySelector("#short-description-input")
@@ -16,24 +16,40 @@
 
 //onLoad functions
 document.addEventListener("DOMContentLoaded", () => {
-  searchButton().addEventListener("click", searchRecipes)
-  viewAllRecipes().addEventListener("click", displayAllRecipes)
+  attachSearchButtonFunction()
+  attachViewAllRecipesFunction()
+
   displayAllRecipes()
+
+  attachRecipeFormSubmit()
+  addStepButton().addEventListener('click', addStep)
+})
+
+const attachSearchButtonFunction = () => {
+  searchButton().addEventListener("click", searchRecipes)
+}
+
+const attachViewAllRecipesFunction = () => {
+  viewAllRecipes().addEventListener("click", displayAllRecipes)
+}
+
+const attachRecipeFormSubmit = () => {
   recipeForm().addEventListener("submit", e => {
     e.preventDefault()
     createNewRecipe(getValuesFromInputs())
     recipeForm().reset()
   })
-  addStepButton().addEventListener('click', addStep)
-})
+}
 
 //displays one recipe
 const displayRecipe = (recipe) => {
   const li = document.createElement("li")
-  const title = document.createElement("h3")
+  const title = document.createElement("h4")
   const olInstructions = document.createElement("ol")
 
+  title.setAttribute("class", "brown-text text-darken-3")
   title.innerText = recipe.title
+
   li.appendChild(title)
   beautifyDisplayedElement(recipe.shortDescription, li, "Description")
   beautifyDisplayedElement(recipe.ingredients, li, "Ingredients")
@@ -44,11 +60,11 @@ const displayRecipe = (recipe) => {
   recipeList().appendChild(li)
 }
 
-//organizes the instructions to display in an ordered list
+//helper function to organize the instructions to display in an ordered list
 const displayOrderedInstructions = (instructionArray, orderedList) => {
-  //debugger
   instructionArray.forEach(instruction => {
     const li = document.createElement("li")
+    li.setAttribute("class", "brown-text text-darken-3")
     li.innerText = instruction
     orderedList.appendChild(li)
   })
@@ -56,15 +72,17 @@ const displayOrderedInstructions = (instructionArray, orderedList) => {
 
 //helper function to display each part of the recipe
 const beautifyDisplayedElement = (element, li, subheading) => {
-  const h4 = document.createElement("h4")
+  const h4 = document.createElement("h6")
+  h4.setAttribute("class", "brown-text text-darken-3")
   const p = document.createElement("p")
+  p.setAttribute("class", "brown-text text-darken-3")
   h4.innerText = subheading
   p.innerText = element
   li.appendChild(h4)
   li.appendChild(p)
 }
 
-//displays all recipes calling displayRecipe while looping through
+//displays all recipes calling displayRecipe while looping through data from the response
 const displayAllRecipes = () => {
   recipeList().innerHTML = ""
   fetch("http://localhost:3000/recipeBook")
@@ -141,21 +159,17 @@ const searchFunctionBuilder = (key) => {
         //debugger
         if (recipe[key].toLowerCase().includes(value.toLowerCase())) {
           recipesMatched.push(recipe)
-          console.log("if recipe IS FOUND in IF log this: ", recipesMatched) 
         }
         
       })
       if (recipesMatched[0]) {
-        console.log("IF VALUE FOUND THIS SHOULD RUN", recipesMatched)
       recipeList().innerHTML = ""
       recipesMatched.forEach(recipe=>displayRecipe(recipe))
       //debugger
       } else {
-        console.log("IF nothing is found THIS SHOULD RUN and an empty array:", recipesMatched)
         alert("No recipes matching that criteria were found.")
       } 
     })
-    
   }
 }
 
@@ -166,20 +180,3 @@ const searchRecipes = (e) => {
 }
 
 
-// const search = (key, value) => {
-//   fetch("http://localhost:3000/recipeBook")
-//   .then(response => response.json())
-//   .then(data => {
-//     data.forEach(recipe => {
-//       if (recipe[key].includes(value)) {
-//         recipeList().innerHTML = ""
-//         displayRecipe(recipe)
-//       }
-//     })
-//   })
-// }
-
-
-//Stretch Goals
-//Delete, Edit, comment, 
-//

@@ -29,31 +29,6 @@
       "id": 2
     },
     {
-      "title": "Tomato Soup",
-      "shortDescription": "it's tomatoy",
-      "ingredients": "tomatoes and water",
-      "instructions": [
-        "buy tomatoes",
-        "cut tomatoes",
-        ""
-      ],
-      "author": "",
-      "id": 3
-    },
-    {
-      "title": "Tomato Soup",
-      "shortDescription": "it's tomatoy",
-      "ingredients": "tomatoes and water",
-      "instructions": [
-        "buy tomatoes",
-        "cut tomatoes",
-        "boil tomatoes",
-        "cook"
-      ],
-      "author": "Tomato lover",
-      "id": 5
-    },
-    {
       "title": "The Classic Ham Sandwich",
       "shortDescription": "Nothing beats the class ham sandwich from when you were a kid",
       "ingredients": "ham, your cheese (I prefer pepper jack), bread, other condiments like mayo or spicy mustard",
@@ -80,6 +55,30 @@
       ],
       "author": "Andrew",
       "id": 7
+    },
+    {
+      "title": "Momma's Mashed Potatoes",
+      "shortDescription": "Creamy mashed potatoes, the perfect side for almost any meal.",
+      "ingredients": "potatoes, water, milk, cheese, butter, salt, pepper",
+      "instructions": [
+        "Boil the potatoes, cut them into small pieces in order for them to cook faster",
+        "Once the potatoes are cooked empty the water.",
+        "Add butter, salt, pepper, and cheese to taste."
+      ],
+      "author": "My mom",
+      "id": 8
+    },
+    {
+      "title": "Soy Mushroom Pasta",
+      "shortDescription": "A recipe I invented with what I had in my fridge!",
+      "ingredients": "mushrooms, soy sauce, pasta, butter",
+      "instructions": [
+        "Cook water on high heat until boiling, then put the pasta in the water based on the instructions from the package",
+        "While pasta is cooking, a little oil in a pan on the stove and chop mushrooms to size preference.",
+        ""
+      ],
+      "author": "Andrew",
+      "id": 9
     }
   ]
 }
