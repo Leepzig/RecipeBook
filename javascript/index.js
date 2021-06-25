@@ -117,7 +117,6 @@ const getValuesFromInputs = () => {
   return recipe
 }
 
-
 //uses fetch to post the data to the server
 const createNewRecipe = (recipe) => {
   const fetchConfiguration = {
@@ -150,24 +149,23 @@ const addStep = () => {
   instructionsInput().appendChild(li)
 }
 
+
+//returns a function that takes a value as an argument to search the given key for the value.
+
 const searchFunctionBuilder = (key) => {
   return (value) => {
     const recipesMatched = []
-    
     fetch("http://localhost:3000/recipeBook")
     .then(response => response.json())
     .then(data => {
       data.forEach(recipe => {
-        //debugger
         if (recipe[key].toLowerCase().includes(value.toLowerCase())) {
           recipesMatched.push(recipe)
         }
-        
       })
       if (recipesMatched[0]) {
       recipeList().innerHTML = ""
       recipesMatched.forEach(recipe=>displayRecipe(recipe))
-      //debugger
       } else {
         alert("No recipes matching that criteria were found.")
       } 
