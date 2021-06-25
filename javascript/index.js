@@ -22,8 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
   displayAllRecipes()
 
   attachRecipeFormSubmit()
-  addStepButton().addEventListener('click', addStep)
+  attachAddStepButton()
 })
+
+const attachAddStepButton = () => {
+  addStepButton().addEventListener('click', (e) => {
+    e.preventDefault
+    addStep()
+
+  })
+}
 
 const attachSearchButtonFunction = () => {
   searchButton().addEventListener("click", searchRecipes)
@@ -141,12 +149,6 @@ const addStep = () => {
   li.appendChild(textarea)
   instructionsInput().appendChild(li)
 }
-
-
-//search function used to find a specific recipe...by what?
-//What would I want to search for?
-//ingredients, title, author, maybe key words, or tags?
-//title:grilled cheese
 
 const searchFunctionBuilder = (key) => {
   return (value) => {
