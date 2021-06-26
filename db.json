@@ -82,6 +82,19 @@
       ],
       "author": "Andrew",
       "id": 9
+    },
+    {
+      "title": "Basic Spaghetti",
+      "shortDescription": "Your run of the mill spaghetti, nothing special nor fancy here",
+      "ingredients": "Italian tomato sauce, ground beef, ",
+      "instructions": [
+        "Boil water then cook pasta",
+        "Cook ground beef and drain the great to another receptacle.",
+        "Put Italian tomato sauce with the ground beef",
+        "Serve the sauce mixture on top of the pasta. Enjoy with garlic bread!"
+      ],
+      "author": "Unknown",
+      "id": 10
     }
   ]
 }
