@@ -68,16 +68,6 @@ const displayRecipe = (recipe) => {
   recipeList().appendChild(li)
 }
 
-//helper function to organize the instructions to display in an ordered list
-const displayOrderedInstructions = (instructionArray, orderedList) => {
-  instructionArray.forEach(instruction => {
-    const li = document.createElement("li")
-    li.setAttribute("class", "brown-text text-darken-3")
-    li.innerText = instruction
-    orderedList.appendChild(li)
-  })
-}
-
 //helper function to display each part of the recipe
 const beautifyDisplayedElement = (element, li, subheading) => {
   const h4 = document.createElement("h6")
@@ -89,6 +79,17 @@ const beautifyDisplayedElement = (element, li, subheading) => {
   li.appendChild(h4)
   li.appendChild(p)
 }
+
+//helper function to organize the instructions to display in an ordered list
+const displayOrderedInstructions = (instructionArray, orderedList) => {
+  instructionArray.forEach(instruction => {
+    const li = document.createElement("li")
+    li.setAttribute("class", "brown-text text-darken-3")
+    li.innerText = instruction
+    orderedList.appendChild(li)
+  })
+}
+
 
 //displays all recipes calling displayRecipe while looping through data from the response
 const displayAllRecipes = () => {
@@ -130,10 +131,7 @@ const createNewRecipe = (recipe) => {
 
   fetch("http://localhost:3000/recipeBook", fetchConfiguration)
   .then(response => response.json())
-  .then(data => {
-    recipeList().innerHTML = ""
-    displayRecipe(data)
-  })
+  .then(data => data)
   .catch(error => console.log(error.message))
 } 
 

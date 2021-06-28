@@ -82,6 +82,19 @@
       ],
       "author": "Andrew",
       "id": 9
+    },
+    {
+      "title": "Soup",
+      "shortDescription": "yummy chicken broth",
+      "ingredients": "water, chicken",
+      "instructions": [
+        "boil water",
+        "put in chicken",
+        "add noodles",
+        "add vegetables"
+      ],
+      "author": "Jim",
+      "id": 10
     }
   ]
 }
